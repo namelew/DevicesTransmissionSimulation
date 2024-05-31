@@ -58,7 +58,6 @@ func (s *Simulation) execRound(rid int, wg *sync.WaitGroup) {
 	}
 
 	successProb := float32(successTransmission) / float32(s.options.NPreambles)
-	utilization := float32(usedPreambles) / float32(s.options.NPreambles)
 
 	s.resultsWritter.Write(&writer.WriterRegister{
 		R:                    s.options.R,
@@ -66,10 +65,10 @@ func (s *Simulation) execRound(rid int, wg *sync.WaitGroup) {
 		NDevices:             s.options.NDevices,
 		NSuccessTransmitions: uint8(successTransmission),
 		CollisionProb:        1 - successProb,
-		Utilization:          utilization,
+		NUsedPreambles:       uint8(usedPreambles),
 	})
 
-	log.Printf("Round %d:\n\tSuccess:%f\n\tUtilization:%f\n", rid, successProb, utilization)
+	log.Printf("Round %d:\n\tSuccess:%f\n\tTransmitted:%d\n", rid, successProb, usedPreambles)
 
 	wg.Done()
 }

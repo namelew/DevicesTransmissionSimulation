@@ -49,13 +49,13 @@ func (w *Writer) write() {
 	stringBuffer := make([][]string, w.maxBufferSize)
 
 	for rid := range w.aggregationBuffer {
-		tempString := fmt.Sprintf("%d,%d,%d,%d,%f,%f",
+		tempString := fmt.Sprintf("%d,%d,%d,%d,%d,%f",
 			w.aggregationBuffer[rid].R,
 			w.aggregationBuffer[rid].NDevices,
 			w.aggregationBuffer[rid].NPreambles,
 			w.aggregationBuffer[rid].NSuccessTransmitions,
+			w.aggregationBuffer[rid].NUsedPreambles,
 			w.aggregationBuffer[rid].CollisionProb,
-			w.aggregationBuffer[rid].Utilization,
 		)
 
 		stringBuffer[rid] = strings.Split(tempString, ",")
