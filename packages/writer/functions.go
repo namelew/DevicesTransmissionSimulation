@@ -43,6 +43,7 @@ func (w *Writer) Write(register *WriterRegister) {
 
 func (w *Writer) Close() {
 	close(w.aggregationChannel)
+	w.write()
 }
 
 func (w *Writer) write() {
