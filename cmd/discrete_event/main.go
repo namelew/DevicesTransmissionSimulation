@@ -14,7 +14,7 @@ func main() {
 	flag.Parse()
 
 	sim := discreteevent.New(&discreteevent.GlobalOptions{
-		NRounds:           uint8(*rounds),
+		NRounds:           uint16(*rounds),
 		DeviceArrivalRate: *deviceArrivalRate,
 		NPreambles:        uint8(*nPreambles),
 	})

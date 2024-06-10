@@ -3,10 +3,10 @@ package writer
 import "encoding/csv"
 
 type WriterRegister struct {
-	R                    uint8
 	NPreambles           uint8
 	NSuccessTransmitions uint8
 	NUsedPreambles       uint8
+	R                    uint16
 	NDevices             uint16
 	CollisionProb        float32
 }

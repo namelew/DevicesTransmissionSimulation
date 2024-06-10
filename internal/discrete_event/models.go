@@ -13,6 +13,6 @@ type Simulation struct {
 
 type GlobalOptions struct {
 	NPreambles        uint8
-	NRounds           uint8
+	NRounds           uint16
 	DeviceArrivalRate float64
 }

@@ -23,7 +23,7 @@ func New(opt *GlobalOptions) *Simulation {
 	}
 }
 
-func (s *Simulation) preamblesSelectionProcess(proc simgo.Process, preambles []uint8, mutex *sync.Mutex, rid uint8, did uint8) {
+func (s *Simulation) preamblesSelectionProcess(proc simgo.Process, preambles []uint8, mutex *sync.Mutex, rid uint16, did uint8) {
 	chosedPreambles := rand.Intn(int(s.options.NPreambles))
 
 	mutex.Lock()
@@ -40,7 +40,7 @@ func (s *Simulation) preamblesSelectionProcess(proc simgo.Process, preambles []u
 
 func (s *Simulation) transmissionsProcess(proc simgo.Process) {
 	poissonRNG := distuv.Poisson{Lambda: s.options.DeviceArrivalRate}
-	var roundID uint8 = 0
+	var roundID uint16 = 0
 
 	for {
 		numberOfDevices := int(poissonRNG.Rand())
