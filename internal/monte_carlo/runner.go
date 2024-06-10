@@ -57,7 +57,7 @@ func (s *Simulation) execRound(rid int, wg *sync.WaitGroup) {
 		}
 	}
 
-	successProb := float32(successTransmission) / float32(s.options.NPreambles)
+	successProb := float32(successTransmission) / float32(usedPreambles)
 
 	s.resultsWritter.Write(&writer.WriterRegister{
 		R:                    uint16(s.options.R),

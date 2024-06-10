@@ -70,7 +70,7 @@ func (s *Simulation) transmissionsProcess(proc simgo.Process) {
 			}
 		}
 
-		successProb := float32(successTransmissions) / float32(s.options.NPreambles)
+		successProb := float32(successTransmissions) / float32(usedPreambles)
 
 		log.Printf("Round %d:\n\tSuccess:%f\n\tTransmitted:%d\n", roundID, successProb, usedPreambles)
 
